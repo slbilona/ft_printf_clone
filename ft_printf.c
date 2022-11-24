@@ -7,7 +7,7 @@ void ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int ft_check(const char *str, int i)
+int ft_check(char c)
 {
 	if(str[i + 1] == 'c')
 		return (1);
@@ -53,20 +53,31 @@ int ft_nb_arg(const char *str)
 	}
 	return (nb);
 }
-/*
+
 int ft_printf(const char *str, ...)
 {
-	va_list ..;
+	va_list list;
 	int i;
 	int nb_arg;
 
 	nb_arg = ft_nb_arg(str);
-	va_start(str, ..);
-	while(nb_arg != 0)
-	{}
-	va_end;
+	va_start(str, list);
+	while(str[i])
+	{
+		if(str[i] == '%')
+		{
+			if(ft_check(&str[i + 1]) > 0)
+				i += 2;
+		}
+		else
+		{
+			ft_putchar(&str[i]);
+			i++;
+		}
+	}
+	va_end(list);
 	return (0);
-}*/
+}
 
 int main()
 {
