@@ -1,4 +1,5 @@
 SRCS = ft_printf.c /
+	ft_put.c /
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
