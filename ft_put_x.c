@@ -3,20 +3,21 @@
 static int ft_putnbr_x(int n)
 {
 	char *base;
-	int i;
+	static int cmp;
 
-	i = 0;
+	cmp = 0;
 	base = "0123456789abcdef";
 	if (0 <= n && n <= 16)
 	{
-		ft_putchar(base[n]);
+		cmp++;
+		write(1, &base[n], 1);
 	}
 	else if (n > 16)
 	{
 		ft_putnbr_x(n / 16);
 		ft_putnbr_x(n % 16);
 	}
-	return (i);
+	return (cmp);
 }
 
 int ft_put_x(va_list list)
