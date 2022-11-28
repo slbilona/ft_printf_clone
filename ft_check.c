@@ -10,6 +10,8 @@ int     ft_check(char c, va_list list)
 		return(ft_put_d(list));
 	else if (c == 'u')
 		return (ft_put_u(list));
+	else if (c == 'x')
+		return (ft_put_x(list));
 	else if (c == '%')
 	{
 		write(1,"%", 1);	
