@@ -6,27 +6,33 @@ int ft_printf(const char *str, ...)
 {
 	va_list list;
 	int i;
+	int cmp;
+	int j;
 
 	i = 0;
+	cmp = 0;
 	va_start(list, str);
+	j = 0;
 	while(str[i])
 	{
 		if(str[i] == '%')
 		{
-			if(ft_check(str[i + 1], list) > 0)
-				i += 2;
-			else
+			j = ft_check(str[i + 1], list);
+			if(j > 0)
 			{
-				write(1, &str[i + 1], 1);
 				i += 2;
+				cmp = cmp + j;
 			}
+			else
+				return (-1);
 		}
 		else
 		{
 			write(1, &str[i], 1);
 			i++;
+			cmp++;
 		}
 	}
 	va_end(list);
-	return (0);
+	return (cmp);
 }

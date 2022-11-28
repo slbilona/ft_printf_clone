@@ -1,15 +1,19 @@
 #include "header.h"
 
-void ft_put_s(va_list list)
+int ft_put_s(va_list list)
 {
 	char *str;
 	int i;
+	int cmp;
 
 	str = va_arg(list, char *);
 	i = 0;
+	cmp = 0;
 	while(str[i])
 	{
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
+		cmp++;
 	}
+	return (cmp);
 }

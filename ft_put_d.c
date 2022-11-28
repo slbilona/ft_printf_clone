@@ -7,8 +7,7 @@ static void ft_putnbr_d(int n)
 	else if (n < 0)
 	{
 		write(1, "-", 1);
-		n = n * -1;
-		ft_putnbr_d(n);
+		ft_putnbr_d(n * -1);
 	}
 	else if (0 <= n && n <= 9)
 	{
@@ -22,10 +21,38 @@ static void ft_putnbr_d(int n)
 	}
 }
 
-void ft_put_d(va_list list)
+int	ft_compte(int n)
+{
+	int	compte;
+
+	compte = 0;
+	if (n < 0)
+	{
+		compte ++;
+		n = n * -1;
+	}
+	if (n >= 0 && n <= 9)
+	{
+		compte++;
+		return (compte);
+	}
+	else
+	{
+		while (n != 0)
+		{
+			n = n / 10;
+			compte++;
+		}
+		return (compte);
+	}
+	return (compte);
+}
+
+int ft_put_d(va_list list)
 {
 	int n;
 
 	n = va_arg(list, int);
 	ft_putnbr_d(n);
+	return (ft_compte(n));
 }
