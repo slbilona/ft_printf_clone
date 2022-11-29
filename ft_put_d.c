@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void ft_putnbr_d(int n)
+static void	ft_putnbr_d(int n)
 {
 	if (n == -2147483648)
 		write(1, "-2147483648", 11);
@@ -60,9 +60,9 @@ int	ft_compte(int n)
 	return (compte);
 }
 
-int ft_put_d(va_list list)
+int	ft_put_d(va_list list)
 {
-	int n;
+	int	n;
 
 	n = va_arg(list, int);
 	ft_putnbr_d(n);

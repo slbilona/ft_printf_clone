@@ -12,11 +12,12 @@
 
 #include "ft_printf.h"
 
-static int ft_putnbr_x(unsigned int n)
+static int	ft_putnbr_x(unsigned int n)
 {
-	char *base;
-	
-	int cmp = 0;
+	char	*base;
+	int		cmp;
+
+	cmp = 0;
 	base = "0123456789abcdef";
 	if (0 == n || (1 <= n && n <= 15))
 	{
@@ -26,14 +27,14 @@ static int ft_putnbr_x(unsigned int n)
 	else if (n >= 16)
 	{
 		cmp = cmp + ft_putnbr_x(n / 16);
-		cmp = cmp +ft_putnbr_x(n % 16);
+		cmp = cmp + ft_putnbr_x(n % 16);
 	}
 	return (cmp);
 }
 
-int ft_put_x(va_list list)
+int	ft_put_x(va_list list)
 {
-	int n;
+	int	n;
 
 	n = va_arg(list, int);
 	if (n >= 0)

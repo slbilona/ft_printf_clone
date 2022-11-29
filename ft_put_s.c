@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-int ft_put_s(va_list list)
+int	ft_put_s(va_list list)
 {
-	char *str;
-	int i;
-	int cmp;
+	char	*str;
+	int		i;
+	int		cmp;
 
 	str = va_arg(list, char *);
 	i = 0;
 	cmp = 0;
-	if(str)
+	if (str)
 	{
-		while(str[i])
+		while (str[i])
 		{
 			ft_putchar(str[i]);
 			i++;

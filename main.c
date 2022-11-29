@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+/*#include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -12,5 +12,5 @@ int main()
 	//printf("\n");
 	printf("\nmon return : %d\n\n", ft_printf("mien : ceci est un test"));
 	printf("\nvrai return : %d\n\n", printf("vrai : ceci est un test"));
-}
+}*/
 
