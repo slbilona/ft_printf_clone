@@ -1,29 +1,37 @@
-SRCS = ft_printf.c /
-	ft_put.c /
+SRCS = ft_check.c \
+	ft_putchar.c \
+	ft_put_u.c \
+	ft_printf.c \
+	ft_put_d.c \
+	ft_put_x.c \
+	ft_put_c.c \
+	ft_put_s.c \
+	ft_put_Xmaj.c \
+	ft_put_p.c \
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-NAME = libftprintf.a
+OBJS = $(SRCS:.c=.o)
 
-OBJS = $(SRCS=.c:.o)
+NAME = libftprintf.a
 
 AR = ar rcs
 
 RM = rm -f
 
-all : $(OBJS)
+all : $(NAME)
+	
+$(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 clean : 
 	$(RM) *.o
 
-fclean : 
-	$(RM) *.o $(NAME)
+fclean :
+	$(RM) $(NAME) *.o
 
-re : $(fclean)
-	all
+re : 
+	fclean all
 
 .PHONY : all re fclean clean
-
-

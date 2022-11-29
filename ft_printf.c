@@ -1,24 +1,36 @@
-#include "header.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ilselbon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 16:29:02 by ilselbon          #+#    #+#             */
+/*   Updated: 2022/11/29 16:29:04 by ilselbon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 #include <stdarg.h>
 #include <unistd.h>
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list list;
-	int i;
-	int cmp;
-	int j;
+	va_list	list;
+	int		i;
+	int		cmp;
+	int		j;
 
 	i = 0;
 	cmp = 0;
 	va_start(list, str);
 	j = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == '%')
+		if (str[i] == '%')
 		{
 			j = ft_check(str[i + 1], list);
-			if(j > 0)
+			if (j >= 0)
 			{
 				i += 2;
 				cmp = cmp + j;
@@ -28,8 +40,7 @@ int ft_printf(const char *str, ...)
 		}
 		else
 		{
-			write(1, &str[i], 1);
-			i++;
+			write(1, &str[i++], 1);
 			cmp++;
 		}
 	}

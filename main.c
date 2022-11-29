@@ -1,4 +1,4 @@
-#include "header.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -6,11 +6,11 @@ int main()
 {
 	//int i = -42;
 	//char c = 'a';
-	//char *str = "hey toi !";
-	//unsigned int u = 4294967295;
-	int x = -2147483647;
+	//char *str = NULL;
+	//unsigned int u = 101;
+	//unsigned int x = 16;
 	//printf("\n");
-	printf("\nmon return : %d\n\n", ft_printf("mien : %d = %x", x, x));
-	printf("\nvrai return : %d\n\n", printf("vrai : %d = %x", x, x));
+	printf("\nmon return : %d\n\n", ft_printf("mien : ceci est un test"));
+	printf("\nvrai return : %d\n\n", printf("vrai : ceci est un test"));
 }
 
