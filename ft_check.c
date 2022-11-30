@@ -25,7 +25,7 @@ int	ft_check(char c, va_list list)
 	else if (c == 'x')
 		return (ft_put_x(list));
 	else if (c == 'X')
-		return (ft_put_Xmaj(list));
+		return (ft_put_xmaj(list));
 	else if (c == 'p')
 		return (ft_put_p(list));
 	else if (c == '%')

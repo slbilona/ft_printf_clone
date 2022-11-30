@@ -6,22 +6,18 @@
 /*   By: ilselbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:29:02 by ilselbon          #+#    #+#             */
-/*   Updated: 2022/11/29 16:29:04 by ilselbon         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:44:34 by ilselbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+static int	ft_suite(const char *str, int cmp, va_list list)
 {
-	va_list	list;
-	int		i;
-	int		cmp;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
-	cmp = 0;
-	va_start(list, str);
 	j = 0;
 	while (str[i])
 	{
@@ -42,6 +38,17 @@ int	ft_printf(const char *str, ...)
 			cmp++;
 		}
 	}
+	return (cmp);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	list;
+	int		cmp;
+
+	cmp = 0;
+	va_start(list, str);
+	cmp = ft_suite(str, cmp, list);
 	va_end(list);
 	return (cmp);
 }

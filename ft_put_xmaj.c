@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_Xmaj(unsigned int n)
+static int	ft_putnbr_xmaj(unsigned int n)
 {
 	char	*base;
 	int		cmp;
@@ -26,22 +26,22 @@ static int	ft_putnbr_Xmaj(unsigned int n)
 	}
 	else if (n >= 16)
 	{
-		cmp = cmp + ft_putnbr_Xmaj(n / 16);
-		cmp = cmp + ft_putnbr_Xmaj(n % 16);
+		cmp = cmp + ft_putnbr_xmaj(n / 16);
+		cmp = cmp + ft_putnbr_xmaj(n % 16);
 	}
 	return (cmp);
 }
 
-int	ft_put_Xmaj(va_list list)
+int	ft_put_xmaj(va_list list)
 {
 	int	n;
 
 	n = va_arg(list, int);
 	if (n >= 0)
-		return (ft_putnbr_Xmaj(n));
+		return (ft_putnbr_xmaj(n));
 	else
 	{
-		ft_putnbr_Xmaj((unsigned int)n);
+		ft_putnbr_xmaj((unsigned int)n);
 		return (8);
 	}
 }

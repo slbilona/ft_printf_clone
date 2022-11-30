@@ -6,7 +6,7 @@ SRCS = ft_check.c \
 	ft_put_x.c \
 	ft_put_c.c \
 	ft_put_s.c \
-	ft_put_Xmaj.c \
+	ft_put_xmaj.c \
 	ft_put_p.c \
 
 CC = gcc
@@ -31,7 +31,6 @@ clean :
 fclean :
 	$(RM) $(NAME) *.o
 
-re : 
-	fclean all
+re : fclean all
 
 .PHONY : all re fclean clean
